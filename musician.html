@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <title> Musician LAB 6 </title>
+ 
+<body>
+<h1> Musician guess by ARAVIND KUMAR KOYYALA</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="MusicianName"> Enter the secret 
+        musician name” </label>
+    <input type ="password" id="MusicianName" name="MusicianName"  value=John Lennon> <br>
+
+    <label for="guessName">Guess the Musician</label>
+    <input type ="text" id="guessName" name="guessName" autofocus> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">This are guessed Musicians details  </p>
+
+<script> 
+var correct=0
+var wrong=0
+function checkGuess(){
+    console.log("Getting form values")
+    name = document.getElementById("MusicianName").value
+    guess = document.getElementById("guessName").value
+
+    if(name === guess){
+        correct = correct + 1
+        alert("You got it right")
+        
+    } else {
+        wrong = wrong + 1 
+        alert("wrong musician")
+
+    }
+    document.getElementById("result").innerHTML = "wrong guess :" + wrong + "\n correct guess :" + correct
+}
+</script>
+
+</body>
+</html> 
