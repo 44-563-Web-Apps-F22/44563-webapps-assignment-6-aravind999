@@ -19,10 +19,16 @@
 
 
 <p id="result">This are guessed Musicians details  </p>
+<div>
+    <img  id= "image" src="killerant.jpg" class="rounded mx-auto d-block" onclick="swapImage()" alt="killerant" style="width: 100px; height : 100px;">
+</div>
 
 <script> 
 var correct=0
 var wrong=0
+useImage=1
+    x=0
+    y=0
 function checkGuess(){
     console.log("Getting form values")
     name = document.getElementById("MusicianName").value
@@ -30,16 +36,43 @@ function checkGuess(){
 
     if(name === guess){
         correct = correct + 1
+        x=x+1
         alert("You got it right")
-        
+        out.innerHTML = "correct - "+correct+" , "+"wrong - "+wrong
     } else {
-        wrong = wrong + 1 
-        alert("wrong musician")
+        
+        wrong=wrong+1
+        y=y+1
+        if(x==0 && y%3==0 && y!=0){
+            alert("Sorry, Game over")
+            return
+        }
+        else if(x>0){
+            x=0
+            y=0
+        }
+        alert("Wrong musician")
+        out.innerHTML = "correct - "+correct+" , "+"wrong - "+wrong
+    }
 
     }
-    document.getElementById("result").innerHTML = "wrong guess :" + wrong + "\n correct guess :" + correct
+    function swapImage(){
+    switch(useImage){
+        case 1 ://image.src = "redant.jpg" ;
+
+                document.getElementById("image").src = "killerant.jpg";
+                useImage=useImage+1
+                break;
+        case 2 :useImage=useImage+1
+                document.getElementById("image").src = "locusts.jpg";
+                break;
+        case 3 :useImage=1
+                document.getElementById("image").src = "odanta.jpg";
+                break;
+    }
 }
 </script>
+
 
 </body>
 </html> 
